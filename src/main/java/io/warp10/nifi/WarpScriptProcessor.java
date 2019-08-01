@@ -29,6 +29,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import org.apache.nifi.annotation.documentation.CapabilityDescription;
+import org.apache.nifi.annotation.documentation.Tags;
 import org.apache.nifi.components.PropertyDescriptor;
 import org.apache.nifi.expression.ExpressionLanguageScope;
 import org.apache.nifi.flowfile.FlowFile;
@@ -51,6 +53,8 @@ import io.warp10.script.WarpScriptExecutor;
 import io.warp10.script.WarpScriptExecutor.StackSemantics;
 import io.warp10.script.functions.REPORT;
 
+@Tags({"timeseries", "tsdb", "IoT", "WarpScript™", "Warp 10™"})
+@CapabilityDescription("Processor for executing WarpScript™ code and interacting with a remote Warp 10™ instance")
 public class WarpScriptProcessor extends AbstractProcessor {
 
   private static final Logger LOG = LoggerFactory.getLogger(WarpScriptProcessor.class);
