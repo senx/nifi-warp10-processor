@@ -353,6 +353,8 @@ public class WarpScriptProcessor extends AbstractProcessor {
       StringBuilder sb = new StringBuilder();
       sb.append("warp.timeunits = us\n");
       sb.append("warpfleet.macros.repos = https://warpfleet.senx.io/macros\n");
+      sb.append("warpscript.extension.rexec = io.warp10.script.ext.rexec.RexecWarpScriptExtension\n");
+      sb.append("warpscript.extension.debug = io.warp10.script.ext.debug.DebugWarpScriptExtension\n");
       StringReader reader = new StringReader(sb.toString());
       WarpConfig.safeSetProperties(reader);
     } else {
