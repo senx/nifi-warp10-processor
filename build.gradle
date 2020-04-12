@@ -70,7 +70,7 @@ idea {
 
 dependencies {
   // https://mvnrepository.com/artifact/org.apache.nifi/nifi-api
-  provided group: 'org.apache.nifi', name: 'nifi-api', version: '1.9.2'
-  compile 'org.apache.nifi:nifi-processor-utils:1.9.2'
+  provided group: 'org.apache.nifi', name: 'nifi-api', version: '1.11.4'
+  compile 'org.apache.nifi:nifi-processor-utils:1.11.4'
   compile 'io.warp10:warpscript:+'
 }
