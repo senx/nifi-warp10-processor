@@ -31,6 +31,7 @@ import java.util.Set;
 
 import org.apache.nifi.annotation.documentation.CapabilityDescription;
 import org.apache.nifi.annotation.documentation.Tags;
+import org.apache.nifi.annotation.lifecycle.OnScheduled;
 import org.apache.nifi.components.PropertyDescriptor;
 import org.apache.nifi.expression.ExpressionLanguageScope;
 import org.apache.nifi.flowfile.FlowFile;
@@ -204,6 +205,10 @@ public class WarpScriptProcessor extends AbstractProcessor {
   protected List<PropertyDescriptor> getSupportedPropertyDescriptors() {
     return this.descriptors;
   }  
+  
+  @OnScheduled
+  public void onScheduled(ProcessContext context) {
+  }
   
   @Override
   public void onTrigger(ProcessContext context, ProcessSession session) throws ProcessException {
