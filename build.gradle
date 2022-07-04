@@ -1,5 +1,5 @@
 //
-//   Copyright 2019  SenX S.A.S.
+//   Copyright 2019 - 2022  SenX S.A.S.
 //
 //   Licensed under the Apache License, Version 2.0 (the "License");
 //   you may not use this file except in compliance with the License.
@@ -17,9 +17,6 @@
 buildscript {
   repositories {
     mavenCentral()
-    maven {
-      url 'http://dl.bintray.com/sponiro/gradle-plugins'
-    }
   }
   dependencies {
     classpath group: 'de.fanero.gradle.plugin.nar', name: 'gradle-nar-plugin', version: '0.3'
@@ -28,12 +25,10 @@ buildscript {
 
 plugins {
   id 'java'
-  //id 'com.github.johnrengelman.shadow' version '4.0.3'
   id 'eclipse'
   id 'idea'
   //id 'signing'
   //id 'maven-publish'
-  //id 'com.jfrog.bintray' version '1.8.1'
 }
 apply plugin: 'de.fanero.gradle.plugin.nar'
 
@@ -42,15 +37,7 @@ configurations {
 }
 
 repositories {
-  jcenter()
-  
-  maven {
-    url 'https://dl.bintray.com/senx/maven'
-  }
-
-  maven {
-    url 'https://dl.bintray.com/hbs/maven'
-  }
+  mavenCentral()
 }
 
 sourceSets {
@@ -70,7 +57,7 @@ idea {
 
 dependencies {
   // https://mvnrepository.com/artifact/org.apache.nifi/nifi-api
-  provided group: 'org.apache.nifi', name: 'nifi-api', version: '1.11.4'
-  compile 'org.apache.nifi:nifi-processor-utils:1.11.4'
+  provided group: 'org.apache.nifi', name: 'nifi-api', version: '1.16.3'
+  compile 'org.apache.nifi:nifi-processor-utils:1.15.3'
   compile 'io.warp10:warpscript:+'
 }
