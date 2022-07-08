@@ -61,3 +61,26 @@ dependencies {
   compile 'org.apache.nifi:nifi-processor-utils:1.15.3'
   compile 'io.warp10:warpscript:+'
 }
+
+def getAppVersion = { ->
+  def stdout = new ByteArrayOutputStream()
+  exec {
+    commandLine 'git', 'rev-parse', '--short', 'HEAD'
+    standardOutput = stdout
+  }
+  def commitId = stdout.toString().replace("\n", "").replace("\r", "").trim()
+  stdout = new ByteArrayOutputStream()
+  exec {
+    commandLine 'git', 'tag', '--points-at', commitId
+    standardOutput = stdout
+  }
+  def tagName = stdout.toString().replace("\n", "").replace("\r", "").trim()
+  def versionName = 'git-' + commitId
+  if (tagName != null && "" != tagName) {
+    versionName = tagName
+  }
+  return versionName
+}
+
+group = 'io.warp10'
+version = getAppVersion()
